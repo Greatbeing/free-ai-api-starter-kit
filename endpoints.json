@@ -1,0 +1,111 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-11-05",
+  "providers": [
+    {
+      "name": "OpenRouter Free",
+      "url": "https://openrouter.ai/api/v1/chat/completions",
+      "auth": "api_key",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "models": ["meta-llama/llama-3.1-8b-instruct", "google/gemini-flash-1.5", "mistralai/mistral-7b-instruct", "microsoft/phi-3-mini", "deepseek/deepseek-chat", "qwen/qwen2.5-72b-instruct"],
+      "notes": "Free models with daily limits. OpenRouter deducts from free credit first.",
+      "signup_url": "https://openrouter.ai"
+    },
+    {
+      "name": "Hugging Face Inference API",
+      "url": "https://api-inference.huggingface.co/models/",
+      "auth": "api_key",
+      "api_key_env": "HF_API_KEY",
+      "models": ["Qwen2.5-7B-Instruct", "Mistral-7B-Instruct-v0.3", "HFUnknown"],
+      "notes": "Free tier: 6000 calls/min for free models. Each model has its own free tier.",
+      "signup_url": "https://huggingface.co/settings/tokens"
+    },
+    {
+      "name": "Google Gemini Free Tier",
+      "url": "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}",
+      "auth": "api_key",
+      "api_key_env": "GEMINI_API_KEY",
+      "models": ["gemini-2.0-flash-lite", "gemini-2.0-flash", "gemini-2.5-flash"],
+      "notes": "Free tier: 15 RPM. No credit card needed. AI Studio provides free API keys.",
+      "signup_url": "https://aistudio.google/app/apikey"
+    },
+    {
+      "name": "Groq Free Tier",
+      "url": "https://api.groq.com/openai/v1/chat/completions",
+      "auth": "api_key",
+      "api_key_env": "GROQ_API_KEY",
+      "models": ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "llama-3.1-70b-versatile", "mixtral-8x7b-32768", "gemma2-9b-it"],
+      "notes": "Free tier: 14.4K tokens/min. Very fast inference.",
+      "signup_url": "https://console.groq.com/keys"
+    },
+    {
+      "name": "Cerebras Free Tier",
+      "url": "https://api.cerebras.ai/v1/chat/completions",
+      "auth": "api_key",
+      "api_key_env": "CEREBRAS_API_KEY",
+      "models": ["llama3.1-8b", "llama-3.1-8b"],
+      "notes": "Free tier: 30K tokens/day. Fast inference on custom silicon.",
+      "signup_url": "https://inference.cerebras.ai/api-key"
+    },
+    {
+      "name": "SambaNova Free Tier",
+      "url": "https://api.sambanova.ai/v1/chat/completions",
+      "auth": "api_key",
+      "api_key_env": "SAMBANOVA_API_KEY",
+      "models": ["Meta-Llama-3.3-70B-Instruct", "Meta-Llama-3.1-8B-Instruct"],
+      "notes": "Free tier with rate limits.",
+      "signup_url": "https://cloud.sambanova.ai/apis"
+    },
+    {
+      "name": "Cloudflare Workers AI",
+      "url": "https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run/{model_name}",
+      "auth": "api_key_header",
+      "api_key_env": "CLOUDFLARE_API_KEY",
+      "account_id_env": "CLOUDFLARE_ACCOUNT_ID",
+      "models": ["@cf/meta/llama-2.1-7b-chat-int8", "@cf/meta/llama-3-8b-instruct-bf16", "@cf/mistral/mistral-7b-instruct-v0.1"],
+      "notes": "10,000 neurons/day free per model. Works via Cloudflare Workers.",
+      "signup_url": "https://dash.cloudflare.com/?to=/:account/ai/quick-start"
+    },
+    {
+      "name": "GigaGPU Free Tier",
+      "url": "https://cloud.gigagpu.com/api/v1/chat/completions",
+      "auth": "api_key",
+      "api_key_env": "GIGAGPU_API_KEY",
+      "models": ["mixtral-8x7b-32k-instruct", "llama-3.1-8b-instruct", "phi-3-small-8k-instruct"],
+      "notes": "Free tier: limited requests per day.",
+      "signup_url": "https://cloud.gigagpu.com"
+    },
+    {
+      "name": "Predibase Free Tier",
+      "url": "https://api.predibase.com/v1/chat/completions",
+      "auth": "api_key",
+      "api_key_env": "PREDIBASE_API_KEY",
+      "models": ["predibase/llama-2-13b-chat", "predibase/llama-3-8b-instruct"],
+      "notes": "Free tier hours available. LoRA adapter hosting.",
+      "signup_url": "https://predibase.com"
+    },
+    {
+      "name": "OctoAI Free Tier",
+      "url": "https://api.octoai.com/v1/chat/completions",
+      "auth": "api_key",
+      "api_key_env": "OCTOAI_API_KEY",
+      "models": ["llama-3.1-8b-instruct", "mixtral-8x7b-instruct"],
+      "notes": "Free credit hours.",
+      "signup_url": "https://app.octoai.com"
+    }
+  ],
+  "endpoints": [
+    {"name": "OpenRouter - OpenAI proxy", "url": "https://openrouter.ai/api/v1/chat/completions", "api_key_env": "OPENROUTER_API_KEY", "default_model": "meta-llama/llama-3.1-8b-instruct", "status": "requires_key"},
+    {"name": "Hugging Face - Qwen2.5-7B", "url": "https://api-inference.huggingface.co/models/Qwen/Qwen2.5-7B-Instruct", "api_key_env": "HF_API_KEY", "default_model": null, "status": "requires_key"},
+    {"name": "Hugging Face - Mistral-7B", "url": "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.3", "api_key_env": "HF_API_KEY", "default_model": null, "status": "requires_key"},
+    {"name": "Groq - Llama 3.3 70B", "url": "https://api.groq.com/openai/v1/chat/completions", "api_key_env": "GROQ_API_KEY", "default_model": "llama-3.3-70b-versatile", "status": "requires_key"},
+    {"name": "Groq - Llama 3.1 8B", "url": "https://api.groq.com/openai/v1/chat/completions", "api_key_env": "GROQ_API_KEY", "default_model": "llama-3.1-8b-instant", "status": "requires_key"},
+    {"name": "Cerebras - Llama 3.1 8B", "url": "https://api.cerebras.ai/v1/chat/completions", "api_key_env": "CEREBRAS_API_KEY", "default_model": "llama3.1-8b", "status": "requires_key"},
+    {"name": "SambaNova - Llama 3.3 70B", "url": "https://api.sambanova.ai/v1/chat/completions", "api_key_env": "SAMBANOVA_API_KEY", "default_model": "Meta-Llama-3.3-70B-Instruct", "status": "requires_key"},
+    {"name": "GigaGPU - Mixtral 8x7B", "url": "https://cloud.gigagpu.com/api/v1/chat/completions", "api_key_env": "GIGAGPU_API_KEY", "default_model": "mixtral-8x7b-32k-instruct", "status": "requires_key"},
+    {"name": "Predibase - Llama 2 13B", "url": "https://api.predibase.com/v1/chat/completions", "api_key_env": "PREDIBASE_API_KEY", "default_model": "predibase/llama-2-13b-chat", "status": "requires_key"},
+    {"name": "OctoAI - Llama 3.1 8B", "url": "https://api.octoai.com/v1/chat/completions", "api_key_env": "OCTOAI_API_KEY", "default_model": "llama-3.1-8b-instruct", "status": "requires_key"},
+    {"name": "Google Gemini 2.0 Flash", "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent", "api_key_env": "GEMINI_API_KEY", "default_model": "gemini-2.0-flash", "status": "requires_key", "note": "Uses Beta API format, needs URL parameter transformation"},
+    {"name": "Google Gemini 2.5 Flash", "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent", "api_key_env": "GEMINI_API_KEY", "default_model": "gemini-2.5-flash", "status": "requires_key", "note": "Beta API format"}
+  ]
+}

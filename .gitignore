@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+.free_ai_setup/
+endpoints-status.json
